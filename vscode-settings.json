@@ -1,21 +1,18 @@
 {
   // Github Settings
-	"git.autofetch": true,
-	"git.confirmSync": false,
-	"git.enableSmartCommit": true,
-
-  // Workbench settings
-	"workbench.colorTheme": "Atom One Dark",
-	"workbench.editor.labelFormat": "short",
-	"workbench.editor.wrapTabs": false,
-	"workbench.iconTheme": "vscode-icons",
-	"workbench.productIconTheme": "fluent-icons",
-	"workbench.startupEditor": "none",
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "workbench.editor.labelFormat": "short",
+  "workbench.editor.wrapTabs": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.startupEditor": "none",
 
   // Prettier Settings
-	"prettier.printWidth": 100,
-	"prettier.tabWidth": 2,
-	"prettier.trailingComma": "all",
+  "prettier.printWidth": 100,
+  "prettier.tabWidth": 2,
+  "prettier.trailingComma": "all",
 
   // Files settings
   "files.autoSave": "afterDelay",
@@ -23,101 +20,88 @@
 
   // Editor settings
   "editor.acceptSuggestionOnCommitCharacter": false,
-	"editor.codeActionsOnSave": {
-		"source.organizeImports": false,
-		"source.fixAll": true
-	},
-	"editor.cursorBlinking": "smooth",
-	"editor.cursorSmoothCaretAnimation": true,
-	"editor.fontFamily": "FiraCode NF",
-	"ligature-test": " if () {}  === !== != => -> =>> ->>",
-	"editor.fontLigatures": true,
-	"editor.fontSize": 14,
-	"editor.inlayHints.enabled": "offUnlessPressed",
-	"editor.inlayHints.fontSize": 13,
-	"editor.inlayHints.padding": true,
-	"editor.inlineSuggest.enabled": true,
-	"editor.minimap.enabled": false,
-	"editor.quickSuggestions": {
-		"strings": true,
-		"comments": "on",
-		"other": "on"
-	},
-	"editor.renderLineHighlight": "gutter",
-	"editor.renderLineHighlightOnlyWhenFocus": true,
-	"editor.semanticTokenColorCustomizations": {
-		"enabled": true,
-		"rules": {
-			"*.mutable": {
-				"underline": true
-			}
-		}
-	},
-	"editor.stickyScroll.enabled": true,
-	"editor.suggest.showStatusBar": true,
-	"editor.suggestSelection": "first",
-	"editor.tabSize": 2,
-	"editor.tokenColorCustomizations": {
-		"textMateRules": [
-			{
-				"scope": [
-					"comment",
-					"keyword",
-					"storage.modifier",
-					"storage.type.class.js",
-					"storage.type.js",
-					"variable.parameter"
-				],
-				"settings": {
-					"fontStyle": "italic"
-				}
-			},
-			{
-				"scope": [
-					"keyword.control.conditional",
-					"keyword.operator"
-				],
-				"settings": {
-					"fontStyle": ""
-				}
-			}
-		]
-	},
-	"editor.unicodeHighlight.invisibleCharacters": false,
-
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": false,
+    "source.fixAll": true
+  },
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.fontFamily": "FiraCode NF",
+  "ligature-test": " if () {}  === !== != => -> =>> ->>",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "editor.inlayHints.fontSize": 13,
+  "editor.inlayHints.padding": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.minimap.enabled": false,
+  "editor.quickSuggestions": {
+    "strings": true,
+    "comments": "on",
+    "other": "on"
+  },
+  "editor.renderLineHighlight": "gutter",
+  "editor.renderLineHighlightOnlyWhenFocus": true,
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true,
+    "rules": {
+      "*.mutable": {
+        "underline": true
+      }
+    }
+  },
+  "editor.stickyScroll.enabled": true,
+  "editor.suggest.showStatusBar": true,
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "keyword",
+          "storage.modifier",
+          "storage.type.class.js",
+          "storage.type.js",
+          "variable.parameter"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": ["keyword.control.conditional", "keyword.operator"],
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+  "editor.unicodeHighlight.invisibleCharacters": false,
 
   // Explorer Settings
-	"explorer.compactFolders": false,
-	"explorer.confirmDelete": false,
-	"explorer.confirmDragAndDrop": false,
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
 
   // Terminal Settings
   "terminal.integrated.defaultProfile.linux": "zsh",
-	"terminal.integrated.defaultProfile.windows": "Command Prompt",
-	"terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font",
-	"terminal.integrated.fontSize": 14,
-	"terminal.integrated.fontWeight": "normal",
-	"terminal.integrated.gpuAcceleration": "auto",
-	"terminal.integrated.profiles.windows": {
-		"Command Prompt": {
-			"path": [
-				"${env:windir}\\Sysnative\\cmd.exe",
-				"${env:windir}\\System32\\cmd.exe"
-			],
-			"args": [],
-			"icon": "terminal"
-		},
-		"Ubuntu (WSL)": {
-			"path": "C:\\Windows\\System32\\wsl.exe",
-			"args": [
-				"-d",
-				"Ubuntu"
-			]
-		}
-	},
-
-  // Security Settings
-  "security.workspace.trust.startupPrompt": "never",
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontWeight": "normal",
+  "terminal.integrated.gpuAcceleration": "auto",
+  "terminal.integrated.profiles.windows": {
+    "Command Prompt": {
+      "path": ["${env:windir}\\Sysnative\\cmd.exe", "${env:windir}\\System32\\cmd.exe"],
+      "args": [],
+      "icon": "terminal"
+    },
+    "Ubuntu (WSL)": {
+      "path": "C:\\Windows\\System32\\wsl.exe",
+      "args": ["-d", "Ubuntu"]
+    }
+  },
   "security.workspace.trust.untrustedFiles": "open",
 
   // Extensions Settings
@@ -125,81 +109,82 @@
 
   // Language Settings
   "elixirLS.suggestSpecs": false,
-	"elixirLS.trace.server": "messages",
-	"elixirLinter.useStrict": true,
-	"go.autocompleteUnimportedPackages": true,
-	"go.toolsManagement.autoUpdate": true,
-	"html.format.indentInnerHtml": true,
-	"javascript.format.semicolons": "insert",
-	"javascript.inlayHints.enumMemberValues.enabled": true,
-	"javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-	"javascript.inlayHints.parameterNames.enabled": "literals",
-	"javascript.inlayHints.parameterTypes.enabled": true,
-	"javascript.preferences.importModuleSpecifier": "non-relative",
-	"javascript.updateImportsOnFileMove.enabled": "always",
-	"redhat.telemetry.enabled": true,
-	"typescript.format.semicolons": "insert",
-	"typescript.inlayHints.enumMemberValues.enabled": true,
-	"typescript.inlayHints.parameterNames.enabled": "literals",
-	"typescript.updateImportsOnFileMove.enabled": "always",
+  "elixirLS.trace.server": "messages",
+  "elixirLinter.useStrict": true,
+  "go.autocompleteUnimportedPackages": true,
+  "go.toolsManagement.autoUpdate": true,
+  "html.format.indentInnerHtml": true,
+  "javascript.format.semicolons": "insert",
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "literals",
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "redhat.telemetry.enabled": true,
+  "typescript.format.semicolons": "insert",
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "literals",
+  "typescript.updateImportsOnFileMove.enabled": "always",
 
   // Formating Settings
   "[dart]": {
-		"editor.formatOnSave": true,
-		"editor.formatOnType": true,
-		"editor.rulers": [
-			80
-		],
-		"editor.selectionHighlight": false,
-		"editor.suggest.snippetsPreventQuickSuggestions": false,
-		"editor.suggestSelection": "first",
-		"editor.tabCompletion": "onlySnippets",
-		"editor.wordBasedSuggestions": false
-	},
-	"[go.mod]": {
-		"editor.defaultFormatter": "golang.go"
-	},
-	"[go.sum]": {
-		"editor.defaultFormatter": "golang.go"
-	},
-	"[go]": {
-		"editor.defaultFormatter": "golang.go"
-	},
-	"[json]": {
-		"editor.defaultFormatter": "vscode.json-language-features"
-	},
-	"[jsonc]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[prisma]": {
-		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "Prisma.prisma"
-	},
-	"[rust]": {
-		"editor.defaultFormatter": "rust-lang.rust-analyzer",
-		"editor.semanticHighlighting.enabled": false
-	},
-	"[svg]": {
-		"editor.defaultFormatter": "jock.svg"
-	},
-	"[typescriptreact]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[typescriptreact][javascriptreact][javascript][typescript][html][css][json][jsonc]": {
-		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-	},
-	"[xml]": {
-		"editor.defaultFormatter": "redhat.vscode-xml"
-	},
-  
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  "[go.mod]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "[go.sum]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[prisma]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.semanticHighlighting.enabled": false
+  },
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact][javascriptreact][javascript][typescript][html][css][json][jsonc]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+
   // Other settings (When changes on settings UI)
-	"diffEditor.ignoreTrimWhitespace": false,
-	"vsicons.dontShowNewVersionMessage": true,
-	"C_Cpp.vcFormat.space.insertAfterSemicolon": true,
-	"editor.unicodeHighlight.nonBasicASCII": false,
-	"editor.suggest.showReferences": false,
-	"rust-analyzer.highlightRelated.references.enable": false,
-	"rust-analyzer.lens.implementations.enable": false,
-	"breadcrumbs.filePath": "last",
-	"breadcrumbs.enabled": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "vsicons.dontShowNewVersionMessage": true,
+  "C_Cpp.vcFormat.space.insertAfterSemicolon": true,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "editor.suggest.showReferences": false,
+  "rust-analyzer.highlightRelated.references.enable": false,
+  "rust-analyzer.lens.implementations.enable": false,
+  "breadcrumbs.filePath": "last",
+  "breadcrumbs.enabled": false,
+  "security.workspace.trust.banner": "never",
+  "workbench.colorTheme": "One Monokai",
+  "window.menuBarVisibility": "compact"
 }
