@@ -8,7 +8,7 @@ g.transparency = false
 opt.swapfile = false
 opt.backup = false
 opt.undofile = true
-opt.undodir = vim.fn.stdpath "data" .. ".vim/undodir"
+opt.undodir = vim.fn.stdpath("data") .. ".vim/undodir"
 
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
@@ -35,7 +35,7 @@ opt.ruler = false
 opt.relativenumber = true
 
 -- disable nvim intro
-opt.shortmess:append "sI"
+opt.shortmess:append("sI")
 
 opt.signcolumn = "yes"
 opt.splitbelow = true
@@ -49,10 +49,4 @@ opt.updatetime = 250
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
-opt.whichwrap:append "<>[]hl"
-
--- Editor Options
---o.swapfile = false
-
--- o.number = true
-
+opt.whichwrap:append("<>[]hl")

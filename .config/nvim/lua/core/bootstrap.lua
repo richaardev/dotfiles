@@ -18,7 +18,7 @@ M.lazy = function(install_path)
   vim.opt.rtp:prepend(install_path)
 
   -- install plugins
-  require "plugins"
+  -- require "plugins"
 end
 
 return M
