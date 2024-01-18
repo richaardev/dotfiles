@@ -7,21 +7,21 @@ M.general = {
 		["<C-e>"] = { "<End>", "End of line" },
 
 		-- Navigate within insert mode
-		["<C-h>"] = { "<Left>" },
-		["<C-j>"] = { "<Down>" },
-		["<C-k>"] = { "<Up>" },
-		["<C-l>"] = { "<Right>" },
+		-- ["<C-h>"] = { "<Left>" },
+		-- ["<C-j>"] = { "<Down>" },
+		-- ["<C-k>"] = { "<Up>" },
+		-- ["<C-l>"] = { "<Right>" },
 	},
 
 	n = {
 		["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
 
 		-- switch between windows
-		["<C-h>"] = { "<C-w>h", "Window left" },
-		["<C-l>"] = { "<C-w>l", "Window right" },
-		["<C-j>"] = { "<C-w>j", "Window down" },
-		["<C-k>"] = { "<C-w>k", "Window up" },
-
+		-- ["<C-h>"] = { "<C-w>h", "Window left" },
+		-- ["<C-l>"] = { "<C-w>l", "Window right" },
+		-- ["<C-j>"] = { "<C-w>j", "Window down" },
+		-- ["<C-k>"] = { "<C-w>k", "Window up" },
+		--
 		-- new buffer
 		["<leader>b"] = { "<cmd> enew <CR>", "New buffer" },
 		["<leader>ch"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
@@ -61,7 +61,15 @@ M.lspconfig = {
 	plugin = true,
 
 	-- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
-
+	--
+	-- i = {
+	-- 	["<C-Space>"] = {
+	-- 		function()
+	-- 			print("test")
+	-- 			require("cmp").mapping.complete()
+	-- 		end,
+	-- 	},
+	-- },
 	n = {
 		["gD"] = {
 			function()
@@ -271,6 +279,38 @@ M.blankline = {
 			end,
 
 			"Jump to current context",
+		},
+	},
+}
+
+M.trouble = {
+	plugin = true,
+
+	n = {
+		["<leader>xx"] = {
+			function()
+				require("trouble").toggle()
+			end,
+		},
+		["<leader>xw"] = {
+			function()
+				require("trouble").toggle("workspace_diagnostics")
+			end,
+		},
+		["<leader>xd"] = {
+			function()
+				require("trouble").toggle("document_diagnostics")
+			end,
+		},
+		["<leader>xq"] = {
+			function()
+				require("trouble").toggle("quickfix")
+			end,
+		},
+		["<leader>xl"] = {
+			function()
+				require("trouble").toggle("loclist")
+			end,
 		},
 	},
 }

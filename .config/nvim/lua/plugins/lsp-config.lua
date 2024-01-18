@@ -1,6 +1,7 @@
 return {
 	{
 		"williamboman/mason.nvim",
+		enabled = vim.g.vscode == nil,
 		opts = function(t)
 			return {}
 		end,
@@ -11,6 +12,7 @@ return {
 
 	{
 		"williamboman/mason-lspconfig.nvim",
+		enabled = vim.g.vscode == nil,
 		opts = function(t)
 			return {
 				ensure_installed = { "lua_ls", "tsserver" },
@@ -23,17 +25,17 @@ return {
 
 	{
 		"neovim/nvim-lspconfig",
-		init = function()
-			require("core.utils").lazy_load("nvim-lspconfig")
-		end,
+		enabled = vim.g.vscode == nil,
 		config = function()
 			require("plugins.config.lsp.lspconfig")
+			require("plugins.config.lsp.servers")
 		end,
 	},
 
 	-- load luasnips + cmp related in insert mode only
 	{
 		"hrsh7th/nvim-cmp",
+		enabled = vim.g.vscode == nil,
 		event = "InsertEnter",
 		dependencies = {
 			{

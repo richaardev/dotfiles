@@ -1,5 +1,6 @@
 return {
 	"folke/which-key.nvim",
+	enabled = vim.g.vscode == nil,
 	keys = { "<leader>", "<c-r>", "<c-w>", '"', "'", "`", "c", "v", "g" },
 	init = function()
 		require("core.utils").load_mappings("whichkey")

@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	enabled = vim.g.vscode == nil,
 	opts = function()
 		return {
 			ensure_installed = { "javascript", "typescript", "tsx", "go", "gomod", "lua", "rust" },

@@ -11,12 +11,17 @@ vim.opt.rtp:prepend(lazypath)
 local lazy = require("lazy")
 lazy.setup({
 	{ import = "plugins" },
-
 	{
-		"catppuccin/nvim",
-		as = "catppuccin",
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
 		init = function()
-			vim.cmd("colorscheme catppuccin-mocha")
+			vim.cmd("colorscheme tokyonight-storm")
 		end,
 	},
 })
+
+if vim.g.vscode then
+	print("Hello VSCode!!!")
+end

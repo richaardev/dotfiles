@@ -1,6 +1,7 @@
 return {
 	{
 		"nvimtools/none-ls.nvim",
+		enabled = vim.g.vscode == nil,
 		dependencies = {
 			{
 				"jay-babu/mason-null-ls.nvim",
@@ -20,9 +21,9 @@ return {
 				end,
 			},
 		},
-    init = function ()
-      require("core.utils").load_mappings("null_ls")
-    end,
+		init = function()
+			require("core.utils").load_mappings("null_ls")
+		end,
 		opts = function()
 			local null_ls = require("null-ls")
 

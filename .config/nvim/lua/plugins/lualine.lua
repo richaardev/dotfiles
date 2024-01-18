@@ -1,5 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
+	enabled = vim.g.vscode == nil,
 	opts = function()
 		return {
 			options = {

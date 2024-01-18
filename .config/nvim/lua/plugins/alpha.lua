@@ -1,5 +1,6 @@
 return {
 	"goolord/alpha-nvim",
+	enable = vim.g.vscode == nil,
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},

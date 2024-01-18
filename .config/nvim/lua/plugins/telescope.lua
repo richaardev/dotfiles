@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
+		enabled = vim.g.vscode == nil,
 		cmd = "Telescope",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		init = function()
