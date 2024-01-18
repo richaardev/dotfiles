@@ -1,11 +1,19 @@
 #Requires AutoHotkey v2.0
 
-*CapsLock::return
+; *CapsLock::return
 
-CapsLock & I::Up
-CapsLock & J::Left
-CapsLock & K::Down
-CapsLock & L::Right
+; CapsLock & I::Up
+; CapsLock & J::Left
+; CapsLock & K::Down
+; CapsLock & L::Right
 
-LShift & Esc:: Send "{Blind}{LShift up}{`"}"
+LShift & Esc:: {
+    if (GetKeyState("Ctrl", "P")) {
+        Run "C:\Windows\System32\Taskmgr.exe"
+    } else {
+        Send "{Blind}{LShift up}{`"}"
+    }
+    return
+}
+
 RShift & Esc:: Send "{Blind}{RShift up}{'}"
