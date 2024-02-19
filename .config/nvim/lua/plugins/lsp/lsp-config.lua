@@ -1,18 +1,105 @@
+-- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/lsp/init.lua
 return {
+	{ import = "plugins.lsp.servers.tailwindcss" },
+	{ import = "plugins.lsp.servers.gopls" },
+
+	{
+		"neovim/nvim-lspconfig",
+		enabled = vim.g.vscode == nil,
+		dependencies = {
+			{ "folke/neodev.nvim", opts = {} },
+			"mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+		},
+		opts = {
+			servers = {
+				lua_ls = {
+					settings = {
+						Lua = {
+							workspace = {
+								checkThirdParty = false,
+							},
+							completion = {
+								callSnippet = "Replace",
+							},
+						},
+					},
+				},
+				tsserver = {},
+				rust_analyzer = {
+					settings = {
+						["rust-analyzer"] = {},
+					},
+				},
+			},
+			setup = {},
+		},
+		config = function(_, opts)
+			local utils = require("utils")
+
+			utils.lsp.on_attach(function(client, buffer)
+				utils.keymap.load_keymaps("lspconfig", { buffer = buffer })
+			end)
+
+			local servers = opts.servers
+			local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+			local capabilities = vim.tbl_deep_extend(
+				"force",
+				{},
+				vim.lsp.protocol.make_client_capabilities(),
+				has_cmp and cmp_nvim_lsp.default_capabilities() or {},
+				opts.capabilities or {}
+			)
+
+			local function setup(server)
+				local server_opts = vim.tbl_deep_extend("force", {
+					capabilities = vim.deepcopy(capabilities),
+				}, servers[server] or {})
+
+				if opts.setup[server] then
+					if opts.setup[server](server, server_opts) then
+						return
+					end
+				elseif opts.setup["*"] then
+					if opts.setup["*"](server, server_opts) then
+						return
+					end
+				end
+				require("lspconfig")[server].setup(server_opts)
+			end
+
+			local have_mason, mlsp = pcall(require, "mason-lspconfig")
+			local all_mslp_servers = {}
+			if have_mason then
+				all_mslp_servers = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
+			end
+
+			local ensure_installed = {}
+			for server, server_opts in pairs(servers) do
+				if server_opts then
+					server_opts = server_opts == true and {} or server_opts
+					if server_opts.mason == false or not vim.tbl_contains(all_mslp_servers, server) then
+						-- run manual setup if mason=false or if this is a server that cannot be installed with mason-lspconfig
+						setup(server)
+					else
+						ensure_installed[#ensure_installed + 1] = server
+					end
+				end
+			end
+
+			if have_mason then
+				mlsp.setup({ ensure_installed = ensure_installed, handlers = { setup } })
+			end
+		end,
+	},
+
 	{
 		"williamboman/mason.nvim",
 		enabled = vim.g.vscode == nil,
 		keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
-		opts = function(t)
-			return {
-				ensure_installed = {
-					"lua-language-server",
-					"typescript-language-server",
-					"gopls",
-					"tailwindcss-language-server",
-				},
-			}
-		end,
+		opts = {
+			ensure_installed = {},
+		},
 		config = function(_, opts)
 			require("mason").setup(opts)
 			local mr = require("mason-registry")
@@ -33,97 +120,4 @@ return {
 			end
 		end,
 	},
-
-	{
-		"williamboman/mason-lspconfig.nvim",
-		enabled = vim.g.vscode == nil,
-		opts = function(t)
-			return {}
-		end,
-		-- config = function(_, opts)
-		-- 	-- require("mason-lspconfig").setup(opts)
-		-- end,
-	},
-
-	{
-		"neovim/nvim-lspconfig",
-		enabled = vim.g.vscode == nil,
-		dependencies = {
-			-- { "folke/neodev.nvim", opts = {} },
-		},
-		config = function()
-			-- require("neodev").setup()
-			local utils = require("core.utils")
-			local lspconfig = require("lspconfig")
-			local util = require("lspconfig/util")
-
-			local on_attach = function(client, bufnr)
-				-- client.server_capabilities.documentFormattingProvider = false
-				-- client.server_capabilities.documentRangeFormattingProvider = false
-
-				utils.load_keymaps("lspconfig", { buffer = bufnr })
-			end
-
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
-			function ConfigureServer(name, language_options)
-				language_options.on_attach = on_attach
-				language_options.capabilities = capabilities
-
-				lspconfig[name].setup(language_options)
-			end
-
-			ConfigureServer("tsserver", {})
-			ConfigureServer("bashls", {})
-
-			ConfigureServer("gopls", {
-				cmd = { "gopls" },
-				filetypes = { "go", "gomod", "gowork", "gotmpl" },
-				root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-				settings = {
-					gopls = {
-						completeUnimported = true,
-						usePlaceholders = true,
-						analyses = {
-							unusedparams = true,
-						},
-					},
-				},
-			})
-
-			ConfigureServer("lua_ls", {
-				settings = {
-					Lua = {
-						completion = {
-							callSnippet = "Replace",
-						},
-						-- diagnostics = {
-						-- 	globals = { "vim" },
-						-- },
-						-- workspace = {
-						-- 	library = {
-						-- 		[vim.fn.expand("$vimruntime/lua")] = true,
-						-- 		[vim.fn.expand("$vimruntime/lua/vim/lsp")] = true,
-						-- 		[vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy"] = true,
-						-- 	},
-						-- 	maxpreload = 100000,
-						-- 	preloadfilesize = 10000,
-						-- },
-					},
-				},
-			})
-
-			ConfigureServer("rust_analyzer", {
-				settings = {
-					["rust-analyzer"] = {},
-				},
-			})
-
-			--    require("plugins.lsp.lspconfig")
-			-- require("plugins.lsp.servers")
-		end,
-	},
-
-	-- load luasnips + cmp related in insert mode only
 }

@@ -5,7 +5,7 @@ return {
 		cmd = "Telescope",
 		dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
 		init = function()
-			require("core.utils").load_keymaps("telescope")
+			require("utils").keymap.load_keymaps("telescope")
 		end,
 		opts = function()
 			local actions = require("telescope.actions")

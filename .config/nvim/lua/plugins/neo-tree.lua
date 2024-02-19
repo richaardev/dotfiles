@@ -9,7 +9,7 @@ return {
 				-- toggle
 				{"<C-n>", "<cmd>Neotree filesystem toggle<CR>", desc = "Toggle nneotree" },
 		}
-		require("core.utils").load_keymaps(neotree)
+		require("utils").keymap.load_keymaps(neotree)
 	end,
 	opts = function()
 		return {
