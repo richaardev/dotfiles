@@ -3,7 +3,7 @@ return {
 	enabled = vim.g.vscode == nil,
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	init = function()
-		require("core.utils").load_mappings("trouble")
+		require("core.utils").load_keymaps("trouble")
 	end,
 	opts = {
 		-- your configuration comes here
