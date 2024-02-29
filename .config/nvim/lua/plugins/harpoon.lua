@@ -83,7 +83,7 @@ return {
 			},
 		}
 
-		require("utils").keymap.load_keymaps(keymaps)
+		require("utils").keymap.loadkeymaps(keymaps)
 	end,
 	opts = function()
 		return {}

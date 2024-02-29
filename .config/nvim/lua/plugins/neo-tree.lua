@@ -5,9 +5,7 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim" },
 	init = function()
 		local neotree = {
-
-				-- toggle
-				{"<C-n>", "<cmd>Neotree filesystem toggle<CR>", desc = "Toggle nneotree" },
+			{ "<C-n>", "<cmd>Neotree filesystem toggle<CR>", desc = "Toggle nneotree" },
 		}
 		require("utils").keymap.load_keymaps(neotree)
 	end,
@@ -18,19 +16,24 @@ return {
 			enable_diagnostics = true,
 			popup_border_style = "rounded",
 			window = {
-				position = "float",
+				position = "left",
 			},
 			event_handlers = {
-
-				{
-					event = "file_opened",
-					handler = function(file_path)
-						-- auto close
-						-- vimc.cmd("Neotree close")
-						-- OR
-						require("neo-tree.command").execute({ action = "close" })
-					end,
+				-- {
+				-- 	event = "file_opened",
+				-- 	handler = function(file_path)
+				-- 		-- auto close
+				-- 		-- vimc.cmd("Neotree close")
+				-- 		-- OR
+				-- 		require("neo-tree.command").execute({ action = "close" })
+				-- 	end,
+				-- },
+			},
+			filesystem = {
+				follow_current_file = {
+					enabled = true,
 				},
+				use_libuv_file_watcher = true,
 			},
 		}
 	end,

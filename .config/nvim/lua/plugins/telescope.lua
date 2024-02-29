@@ -5,7 +5,50 @@ return {
 		cmd = "Telescope",
 		dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
 		init = function()
-			require("utils").keymap.load_keymaps("telescope")
+			local telescope = {
+
+				-- find
+				{ "<leader>ff", "<cmd> Telescope find_files <CR>", desc = "[Telescope] Find files" },
+				{ "<leader>fr", "<cmd> Telescope resume <CR>", desc = "[Telescope] Resume" },
+				{ "<leader>fh", "<cmd> Telescope help_tags <CR>", desc = "[Telescope] Help page" },
+				{ "<leader>fo", "<cmd> Telescope oldfiles <CR>", desc = "[Telescope] Find oldfiles" },
+				{
+					"<leader>fa",
+					"<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>",
+					desc = "[Telescope] Find all",
+				},
+				{ "<leader>fg", "<cmd> Telescope live_grep <CR>", desc = "[Telescope] Live grep" },
+				{ "<leader>fb", "<cmd> Telescope buffers <CR>", desc = "[Telescope] Find buffers" },
+				{
+					"<leader>fz",
+					"<cmd> Telescope current_buffer_fuzzy_find <CR>",
+					desc = "[Telescope] Find in current buffer",
+				},
+
+				-- LSP
+				{
+					"<leader>fS",
+					"<cmd> Telescope lsp_workspace_symbols <CR>",
+					desc = "[Telescope] Find Symbols (Workspace)",
+				},
+				{
+					"<leader>fs",
+					"<cmd> Telescope lsp_document_symbols <CR>",
+					desc = "[Telescope] Find Symbols (Current File)",
+				},
+
+				-- ["<leader>fr"] = { "<cmd> Telescope lsp_references <CR>", "[Telescope] Find References (LSP)" },
+				-- ["<leader>fd"] = {
+				-- 	"<cmd> Telescope lsp_document_diagnostics <CR>",
+				-- 	"[Telescope] Find Document Diagnostics (LSP)",
+				-- },
+				-- ["<leader>fwd"] = {
+				-- 	"<cmd> Telescope lsp_workspace_diagnostics <CR>",
+				-- 	"[Telescope] Find Workspace Diagnostics (LSP)",
+				-- },
+			}
+
+			require("utils").keymap.load_keymaps(telescope)
 		end,
 		opts = function()
 			local actions = require("telescope.actions")
@@ -24,7 +67,7 @@ return {
 					buffers = {
 						mappings = {
 							i = {
-								["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+								["<c-c>"] = actions.delete_buffer + actions.move_to_top,
 							},
 						},
 					},
@@ -49,14 +92,11 @@ return {
 						i = {
 							["<esc>"] = actions.close,
 
-							["<C-j>"] = actions.move_selection_next,
-							["<C-k>"] = actions.move_selection_previous,
-
 							["<PageUp>"] = actions.preview_scrolling_up,
 							["<PageDown>"] = actions.preview_scrolling_down,
 
 							["<C-_>"] = actions.which_key, -- WTF it is <C-/>
-							["<C-u>"] = false, -- Clear input
+							["<C-c>"] = false, -- Clear input
 						},
 					},
 				},

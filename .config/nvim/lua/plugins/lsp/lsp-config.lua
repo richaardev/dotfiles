@@ -1,7 +1,14 @@
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/lsp/init.lua
 return {
+	{
+		"j-hui/fidget.nvim",
+		opts = {},
+	},
+
+	{ import = "plugins.lsp.servers.typescript" },
 	{ import = "plugins.lsp.servers.tailwindcss" },
 	{ import = "plugins.lsp.servers.gopls" },
+	{ import = "plugins.lsp.servers.jsonls" },
 
 	{
 		"neovim/nvim-lspconfig",
@@ -25,7 +32,6 @@ return {
 						},
 					},
 				},
-				tsserver = {},
 				rust_analyzer = {
 					settings = {
 						["rust-analyzer"] = {},

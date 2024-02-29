@@ -6,6 +6,9 @@ return {
 		require("utils").keymap.load_keymaps("whichkey")
 	end,
 	cmd = "WhichKey",
+	opts = {
+		triggers = { "<leader>" },
+	},
 	config = function(_, opts)
 		require("which-key").setup(opts)
 	end,

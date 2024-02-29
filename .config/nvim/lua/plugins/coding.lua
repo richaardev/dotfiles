@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field
 return {
 	{ "echasnovski/mini.ai", version = "*" },
 	{
@@ -13,13 +14,13 @@ return {
 		version = false,
 		opts = {
 			mappings = {
-				add = "gsa", -- Add surrounding in Normal and Visual modes
-				delete = "gsd", -- Delete surrounding
-				find = "gsf", -- Find surrounding (to the right)
-				find_left = "gsF", -- Find surrounding (to the left)
-				highlight = "gsh", -- Highlight surrounding
-				replace = "gsr", -- Replace surrounding
-				update_n_lines = "gsn", -- Update `n_lines`
+				add = "sa", -- Add surrounding in Normal and Visual modes
+				delete = "sd", -- Delete surrounding
+				find = "sf", -- Find surrounding (to the right)
+				find_left = "sF", -- Find surrounding (to the left)
+				highlight = "sh", -- Highlight surrounding
+				replace = "sr", -- Replace surrounding
+				update_n_lines = "sn", -- Update `n_lines`
 			},
 		},
 		config = function(_, opts)
@@ -63,42 +64,25 @@ return {
 		},
 	},
 	{
-		"echasnovski/mini.comment",
-		event = "VeryLazy",
+		"numToStr/Comment.nvim",
 		opts = {
-			options = {
-				custom_commentstring = function()
-					return require("ts_context_commentstring.internal").calculate_commentstring()
-						or vim.bo.commentstring
-				end,
-			},
+			-- add any options here
 		},
-		config = function()
-			require("mini.comment").setup()
+		lazy = false,
+		config = function(_, opts)
+			---@diagnostic disable-next-line: missing-fields
+			require("Comment").setup({
+				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+			})
 		end,
 	},
 	{
 		"folke/todo-comments.nvim",
 		enabled = vim.g.vscode == nil,
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
+		opts = {},
 		keys = {
 			{ "<leader>ft", "<cmd> TodoTelescope <CR>", desc = "[TodoComments] Todo" },
 		},
 	},
 }
--- return {
--- 	"kylechui/nvim-surround",
--- 	version = "*", -- Use for stability; omit to use `main` branch for the latest features
--- 	event = "VeryLazy",
--- 	opts = function()
--- 		return {}
--- 	end,
--- 	config = function(_, opts)
--- 		require("nvim-surround").setup(opts)
--- 	end,
--- }

@@ -8,13 +8,24 @@ M.general = {
 
 	{ "<Esc>", "<cmd> noh <CR>", desc = "Clear highlights" },
 
+	-- Add new undo point
+	{ ".", ".<c-g>u", mode = "i", desc = "Add new undo point" },
+	{ ",", ",<c-g>u", mode = "i", desc = "Add new undo point" },
+	{ ";", ";<c-g>u", mode = "i", desc = "Add new undo point" },
+
+	-- Buffer actions
+	{ "L", "<cmd>bnext<cr>", mode = "n", desc = "Next buffer" },
+	{ "H", "<cmd>bprevious<cr>", mode = "n", desc = "Next buffer" },
+
+	-- Tab Actions
+	{ "[b", "<cmd>bprevious<cr>", mode = "n", desc = "Next buffer" },
+	{ "[b", "<cmd>bprevious<cr>", mode = "n", desc = "Next buffer" },
+
 	-- move lines
-	{ "<A-j>", "<esc><cmd>m .+1<cr>==gi", desc = "Move down", mode = "i" },
-	{ "<A-k>", "<esc><cmd>m .-2<cr>==gi", desc = "Move up", mode = "i" },
-	{ "<A-j>", "<cmd>m .+1<cr>==gi", desc = "Move down", mode = "n" },
-	{ "<A-k>", "<cmd>m .-2<cr>==gi", desc = "Move up", mode = "n" },
-	{ "<A-j>", ":m '>+1<CR>gv=gv", desc = "Move down", mode = "v" },
-	{ "<A-k>", ":m '<-2<CR>gv=gv", desc = "Move up", mode = "v" },
+	{ "<M-k>", "<cmd>m .-2<cr>==", desc = "Move up", mode = "n" },
+	{ "<M-j>", "<cmd>m .+1<cr>==", desc = "Move down", mode = "n" },
+	{ "<M-j>", ":m '>+1<CR>gv=gv", desc = "Move down", mode = "v" },
+	{ "<M-k>", ":m '<-2<CR>gv=gv", desc = "Move up", mode = "v" },
 	{ "<", "<gv", mode = "v", desc = "Indent line" },
 	{ ">", ">gv", mode = "v", desc = "Indent line" },
 }
@@ -43,7 +54,8 @@ M.lspconfig = {
 	{
 		"<leader>cf",
 		function()
-			vim.lsp.buf.format()
+			-- vim.lsp.buf.format()
+			require("utils").format({ force = true })
 		end,
 		desc = "[LSP] Code Format",
 	},
@@ -185,33 +197,6 @@ M.lspconfig = {
 	},
 }
 
-M.telescope = {
-
-	-- find
-	{ "<leader>fh", "<cmd> Telescope help_tags <CR>", desc = "[Telescope] Help page" },
-	{ "<leader>fo", "<cmd> Telescope oldfiles <CR>", desc = "[Telescope] Find oldfiles" },
-	{ "<leader>ff", "<cmd> Telescope find_files <CR>", desc = "[Telescope] Find files" },
-	{
-		"<leader>fa",
-		"<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>",
-		desc = "[Telescope] Find all",
-	},
-	{ "<leader>fg", "<cmd> Telescope live_grep <CR>", desc = "[Telescope] Live grep" },
-	{ "<leader>fb", "<cmd> Telescope buffers <CR>", desc = "[Telescope] Find buffers" },
-	{ "<leader>fz", "<cmd> Telescope current_buffer_fuzzy_find <CR>", desc = "[Telescope] Find in current buffer" },
-
-	-- LSP
-	-- ["<leader>fr"] = { "<cmd> Telescope lsp_references <CR>", "[Telescope] Find References (LSP)" },
-	-- ["<leader>fd"] = {
-	-- 	"<cmd> Telescope lsp_document_diagnostics <CR>",
-	-- 	"[Telescope] Find Document Diagnostics (LSP)",
-	-- },
-	-- ["<leader>fwd"] = {
-	-- 	"<cmd> Telescope lsp_workspace_diagnostics <CR>",
-	-- 	"[Telescope] Find Workspace Diagnostics (LSP)",
-	-- },
-}
-
 M.whichkey = {
 
 	{
@@ -228,64 +213,6 @@ M.whichkey = {
 			vim.cmd("WhichKey " .. input)
 		end,
 		desc = "[WhichKey] Query lookup",
-	},
-}
-
-M.blankline = {
-
-	{
-		"<leader>cc",
-		function()
-			local ok, start = require("indent_blankline.utils").get_current_context(
-				vim.g.indent_blankline_context_patterns,
-				vim.g.indent_blankline_use_treesitter_scope
-			)
-
-			if ok then
-				vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start, 0 })
-				vim.cmd([[normal! _]])
-			end
-		end,
-
-		desc = "[IndentBlankline] Jump to current context",
-	},
-}
-
-M.trouble = {
-	{
-		"<leader>xx",
-		function()
-			require("trouble").toggle()
-		end,
-		desc = "[Trouble] Toggle trouble",
-	},
-	{
-		"<leader>xw",
-		function()
-			require("trouble").toggle("workspace_diagnostics")
-		end,
-		desc = "[Trouble] Open workspace diagnostics",
-	},
-	{
-		"<leader>xd",
-		function()
-			require("trouble").toggle("document_diagnostics")
-		end,
-		desc = "[Trouble] Open document diagnostics",
-	},
-	{
-		"<leader>xq",
-		function()
-			require("trouble").toggle("quickfix")
-		end,
-		desc = "[Trouble] Open quick fix",
-	},
-	{
-		"<leader>xl",
-		function()
-			require("trouble").toggle("loclist")
-		end,
-		desc = "[Trouble] Open loc list",
 	},
 }
 

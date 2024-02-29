@@ -2,7 +2,7 @@
 local M = {}
 
 ---@param keymap table
----@param mapping_opt table
+---@param mapping_opt? table
 M.load_keymap = function(keymap, mapping_opt)
 	if type(keymap) ~= "table" then
 		return
@@ -35,7 +35,7 @@ M.load_keymap = function(keymap, mapping_opt)
 end
 
 ---@param section table | string
----@param mapping_opt table
+---@param mapping_opt? table
 M.load_keymaps = function(section, mapping_opt)
 	vim.schedule(function()
 		local mappings = require("core.keymaps")

@@ -30,8 +30,4 @@ lazy.setup({
 	},
 })
 
-if vim.g.vscode then
-	print("Hello VSCode!!!")
-end
-
 core.setup()
