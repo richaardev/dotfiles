@@ -1,6 +1,7 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	enabled = vim.g.vscode == nil,
+  event = {"VeryLazy"},
 	opts = function()
 		return {
 			options = {

@@ -4,6 +4,7 @@ return {
 		enabled = vim.g.vscode == nil,
 		version = false,
 		build = ":TSUpdate",
+    event = { "VeryLazy" },
 		cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 		keys = {
 			{ "<c-space>", desc = "[Treesitter] Increment selection" },

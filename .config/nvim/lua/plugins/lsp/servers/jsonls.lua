@@ -12,7 +12,12 @@ return {
 			table.insert(opts.servers.jsonls, {
 				settings = {
 					json = {
-						schemas = require("schemastore").json.schemas(),
+						schemas = require("schemastore").json.schemas {
+              select = {
+                "package.json",
+                ".eslintrc"
+              }
+            },
 						format = { enable = true },
 						validate = { enable = true },
 					},
