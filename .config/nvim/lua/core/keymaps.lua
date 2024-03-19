@@ -51,14 +51,14 @@ M.comment = {
 
 M.lspconfig = {
 
-	{
-		"<leader>cf",
-		function()
-			-- vim.lsp.buf.format()
-			require("utils").format({ force = true })
-		end,
-		desc = "[LSP] Code Format",
-	},
+	-- {
+	-- 	"<leader>cf",
+	-- 	function()
+	-- 		-- vim.lsp.buf.format()
+	-- 		require("utils").format({ force = true })
+	-- 	end,
+	-- 	desc = "[LSP] Code Format",
+	-- },
 	{
 		"gD",
 		function()
@@ -107,13 +107,13 @@ M.lspconfig = {
 		desc = "[LSP] Get definition help",
 	},
 
-	{
-		"<leader>ra",
-		function()
-			vim.lsp.buf.rename()
-		end,
-		desc = "[LSP] Rename element",
-	},
+	-- {
+	-- 	"<leader>ra",
+	-- 	function()
+	-- 		vim.lsp.buf.rename()
+	-- 	end,
+	-- 	desc = "[LSP] Rename element",
+	-- },
 
 	{
 		"<leader>ca",
