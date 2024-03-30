@@ -46,12 +46,6 @@ return {
     enabled = vim.g.vscode == nil,
     event = "InsertEnter",
     dependencies = {
-      -- cmp sources plugins
-      "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-
       {
         "L3MON4D3/LuaSnip",
         dependencies = "rafamadriz/friendly-snippets",
@@ -60,13 +54,14 @@ return {
           delete_check_events = "TextChanged,TextChangedI",
         },
         config = function(_, opts)
+          require("luasnip").config.set_config(opts)
           require("luasnip.loaders.from_vscode").lazy_load()
 
           vim.api.nvim_create_autocmd("InsertLeave", {
             callback = function()
               if
-                  require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-                  and not require("luasnip").session.jump_active
+                require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+                and not require("luasnip").session.jump_active
               then
                 require("luasnip").unlink_current()
               end
@@ -74,6 +69,13 @@ return {
           })
         end,
       },
+      
+      -- cmp sources plugins
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+
     },
     opts = function()
       vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })

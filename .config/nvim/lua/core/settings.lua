@@ -13,8 +13,9 @@ opt.undodir = vim.fn.stdpath("data") .. ".vim/undodir"
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
 
-opt.clipboard = "unnamedplus"
-opt.cursorline = true
+-- opt.clipboard = "unnamedplus"
+-- opt.clipboard = "unnamedplus"
+-- opt.cursorline = true
 --
 -- Indenting
 opt.expandtab = true

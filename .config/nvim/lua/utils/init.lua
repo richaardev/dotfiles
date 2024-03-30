@@ -1,9 +1,7 @@
 local LazyUtil = require("lazy.core.util")
 
 ---@class utils: LazyUtilCore
----@field lsp utils.lsp
 ---@field keymap utils.keymap
----@field format utils.format
 local M = {}
 
 setmetatable(M, {

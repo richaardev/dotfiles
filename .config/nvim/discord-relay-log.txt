@@ -1,0 +1,4 @@
+Thu Mar 28 12:25:41 -03 2024|start script
+/bin/sh: 1: discord-relay.sh: not found
+Fri Mar 29 12:43:34 -03 2024|start script
+/bin/sh: 1: discord-relay.sh: not found

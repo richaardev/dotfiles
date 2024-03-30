@@ -1,11 +1,13 @@
 require("core.settings")
+require("core.lazy")
 
 local M = {}
 
 function M.setup()
-  local util = require("utils")
+	local keymaps = require("core.keymaps")
+	local util = require("utils")
 
-  util.keymap.load_keymaps("general", {})
+	util.keymap.load_keymaps(keymaps.general)
 end
 
 return M
