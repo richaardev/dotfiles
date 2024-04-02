@@ -1,8 +1,8 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
 	require("core.bootstrap").lazy(lazypath)
 end
-
 vim.opt.rtp:prepend(lazypath)
 
 local lazy = require("lazy")
@@ -28,13 +28,10 @@ lazy.setup({
 		{ import = "plugins" },
 	},
 
-	defaults = { lazy = true },
+	defaults = { lazy = true, version = false },
 	install = { colorscheme = { "tokyonight", "habamax" } },
+	checker = { enabled = true },
 	performance = {
-		cache = {
-			enabled = true,
-			-- disable_events = {},
-		},
 		rtp = {
 			disabled_plugins = {
 				"gzip",
@@ -49,8 +46,17 @@ lazy.setup({
 			},
 		},
 	},
-	change_detection = {
-		enable = false,
-		notify = false,
-	},
 })
+
+-- vim.opt.clipboard = {
+-- 	name = "WslClipboard",
+-- 	copy = {
+-- 		["+"] = "clip.exe",
+-- 		["*"] = "clip.exe",
+-- 	},
+-- 	paste = {
+-- 		["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+-- 		["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+-- 	},
+-- 	cache_enabled = 0,
+-- }

@@ -38,10 +38,11 @@ end
 ---@param mapping_opt? table
 M.load_keymaps = function(section, mapping_opt)
 	vim.schedule(function()
-		local mappings = require("core.keymaps")
+		-- local mappings = require("core.keymaps")
 
 		if type(section) == "string" then
-			section = mappings[section]
+			-- 	section = mappings[section]
+			return
 		end
 
 		for _, keymap in pairs(section) do
