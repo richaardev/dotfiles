@@ -15,25 +15,12 @@ g.transparency = false
 -- opt.swapfile = false
 -- opt.backup = false
 opt.undofile = true
-opt.undodir = vim.fn.stdpath("data") .. ".vim/undodir"
+opt.undodir = { vim.fn.stdpath("data") .. ".vim/undodir" }
 
-opt.laststatus = 3 -- global statusline
+opt.laststatus = 3
 opt.showmode = false
 
-if is_wsl then
-	opt.clipboard = {
-		name = "WslClipboard",
-		copy = {
-			["+"] = "clip.exe",
-			["*"] = "clip.exe",
-		},
-		paste = {
-			["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-			["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-		},
-		cache_enabled = 0,
-	}
-end
+opt.clipboard = "unnamedplus"
 
 -- opt.cursorline = true
 
@@ -63,10 +50,9 @@ opt.splitbelow = true
 opt.splitright = true
 opt.termguicolors = true
 opt.timeoutlen = 400
---
+
 -- -- interval for writing swap file to disk, also used by gitsigns
 -- opt.updatetime = 250
---
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
-opt.whichwrap:append("<>[]hl")
+-- opt.whichwrap:append("<>[]hl")

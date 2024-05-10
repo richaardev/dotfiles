@@ -1,9 +1,15 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	keys = {
-		{ "<leader>fF", LazyVim.telescope("files"), desc = "Find Files (root dir)" },
-		{ "<leader>ff", LazyVim.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
+	keys = function()
+		local builtin = require("telescope.builtin")
 
-		{ "<leader>bf", LazyVim.telescope("current_buffer_fuzzy_find"), desc = "Current Buffer Fuzzy Find (cwd)" },
-	},
+		return {
+			{ "<leader>ff", builtin.find_files, desc = "Find Files" },
+			{ "<leader>fb", builtin.buffers, desc = "Find Buffers" },
+			{ "<leader>fr", builtin.resume, desc = "Find Resume" },
+			{ "<leader>fw", builtin.current_buffer_fuzzy_find, desc = "Current Buffer Fuzzy Find" },
+
+			{ "<leader>sg", builtin.live_grep, desc = "Live Grep" },
+		}
+	end,
 }

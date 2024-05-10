@@ -1,38 +1,32 @@
-local M = {}
+local keymal = require("utils.keymap")
+local map = keymal.map
 
-vim.keymap.del("i", "<M-k>")
-vim.keymap.del("i", "<M-j>")
+map("i", "<C-b>", "<ESC>^i", { desc = "Beginning of line" })
+map("i", "<C-e>", "<End>", { desc = "End of line" })
+map({ "n" }, "<Esc>", "<cmd> noh <CR>", { desc = "Clear highlights" })
 
-M.general = {
-	-- { "<leader>cl", "<cmd>Lazy<cr>", mode = "n", desc = "Lazy" },
+-- Add new undo point
+map("i", ".", ".<c-g>u", { desc = "Add new undo point" })
+map("i", ",", ",<c-g>u", { desc = "Add new undo point" })
+map("i", ";", ";<c-g>u", { desc = "Add new undo point" })
 
-	{ "<C-b>", "<ESC>^i", mode = "i", desc = "Beginning of line" },
-	{ "<C-e>", "<End>", mode = "i", desc = "End of line" },
+-- Buffer actions
+map("n", "L", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "H", "<cmd>bprevious<cr>", { desc = "Next buffer" })
 
-	{ "<Esc>", "<cmd> noh <CR>", desc = "Clear highlights" },
+-- Tab Actions
+map("n", "[b", "<cmd>bprevious<cr>", { desc = "Next buffer" })
+map("n", "[b", "<cmd>bprevious<cr>", { desc = "Next buffer" })
 
-	-- Add new undo point
-	{ ".", ".<c-g>u", mode = "i", desc = "Add new undo point" },
-	{ ",", ",<c-g>u", mode = "i", desc = "Add new undo point" },
-	{ ";", ";<c-g>u", mode = "i", desc = "Add new undo point" },
+-- move lines
+map("n", "<M-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map("n", "<M-J>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("v", "<M-K>", ":m '<-2<CR>gv=gv", { desc = "Move up" })
+map("v", "<M-J>", ":m '>+1<CR>gv=gv", { desc = "Move down" })
+map("v", "<", "<gv", { desc = "Indent line" })
+map("v", ">", ">gv", { desc = "Indent line" })
 
-	-- Buffer actions
-	{ "L", "<cmd>bnext<cr>", mode = "n", desc = "Next buffer" },
-	{ "H", "<cmd>bprevious<cr>", mode = "n", desc = "Next buffer" },
-
-	-- Tab Actions
-	{ "[b", "<cmd>bprevious<cr>", mode = "n", desc = "Next buffer" },
-	{ "[b", "<cmd>bprevious<cr>", mode = "n", desc = "Next buffer" },
-
-	-- move lines
-	{ "K", "<cmd>m .-2<cr>==", desc = "Move up", mode = "n" },
-	{ "J", "<cmd>m .+1<cr>==", desc = "Move down", mode = "n" },
-	{ "K", ":m '<-2<CR>gv=gv", desc = "Move up", mode = "v" },
-	{ "J", ":m '>+1<CR>gv=gv", desc = "Move down", mode = "v" },
-	{ "<", "<gv", mode = "v", desc = "Indent line" },
-	{ ">", ">gv", mode = "v", desc = "Indent line" },
-}
-
-local util = require("utils")
-
-util.keymap.load_keymaps(M.general)
+vim.keymap.del({ "t", "n" }, "<C-/>")
+vim.keymap.del({ "n" }, "<leader>L")
+vim.keymap.del({ "n" }, "<leader>ft")
+vim.keymap.del({ "n" }, "<leader>fT")

@@ -3,7 +3,8 @@ return {
 	opts = {
 		close_if_last_window = true,
 		window = {
-			position = "float",
+			-- position = "float",
+			position = "left",
 			mappings = {
 				["Y"] = {
 					function(state)
