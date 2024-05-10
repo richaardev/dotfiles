@@ -49,8 +49,6 @@ lazy.setup({
 		{ import = "lazyvim.plugins.extras.lang.docker" },
 		{ import = "lazyvim.plugins.extras.lang.rust" },
 
-		-- { import = "lazyvim.plugins.extras.editor.outline" },
-
 		{ import = "lazyvim.plugins.extras.util.project" },
 
 		{ import = "plugins" },
