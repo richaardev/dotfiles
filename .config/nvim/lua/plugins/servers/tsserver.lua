@@ -20,17 +20,6 @@ return {
 			})
 		end,
 	},
-	-- {
-	-- 	"mfussenegger/nvim-lint",
-	-- 	opts = {
-	-- 		linters_by_ft = {
-	-- 			javascript = { "eslint" },
-	-- 			javascriptreact = { "eslint" },
-	-- 			typescript = { "eslint" },
-	-- 			typescriptreact = { "eslint" },
-	-- 		},
-	-- 	},
-	-- },
 	{
 		"dmmulroy/tsc.nvim",
 		opts = {
