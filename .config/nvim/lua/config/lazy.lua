@@ -30,16 +30,9 @@ lazy.setup({
 		{
 			"LazyVim/Lazyvim",
 			import = "lazyvim.plugins",
-			opts = {
-				defaults = {
-					-- autocmds = true,
-					-- keymaps = false,
-				},
-			},
 		},
 
 		{ import = "lazyvim.plugins.extras.vscode" },
-
 		{ import = "lazyvim.plugins.extras.lsp.none-ls" },
 
 		{ import = "lazyvim.plugins.extras.lang.typescript" },
@@ -48,8 +41,10 @@ lazy.setup({
 		{ import = "lazyvim.plugins.extras.lang.go" },
 		{ import = "lazyvim.plugins.extras.lang.docker" },
 		{ import = "lazyvim.plugins.extras.lang.rust" },
-
-		{ import = "lazyvim.plugins.extras.util.project" },
+		{ import = "lazyvim.plugins.extras.lang.rust" },
+		{ import = "lazyvim.plugins.extras.coding.mini-comment" },
+		{ import = "lazyvim.plugins.extras.coding.mini-surround" },
+		{ import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 
 		{ import = "plugins" },
 		{ import = "plugins.servers" },
@@ -77,7 +72,7 @@ lazy.setup({
 		lazy = false,
 		version = false,
 	},
-	install = { colorscheme = { "tokyonight", "habamax" } },
+	install = { colorscheme = {} },
 	checker = { enabled = false },
 	performance = {
 		rtp = {

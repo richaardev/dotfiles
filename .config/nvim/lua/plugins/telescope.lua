@@ -22,4 +22,19 @@ return {
 			{ "<leader>sG", "<cmd>Telescope live_grep_args<cr>", desc = "Live Grep (Args)" },
 		}
 	end,
+	opts = {
+		defaults = {
+			mappings = {
+				i = {
+					["<C-a>"] = require("telescope.actions.layout").toggle_preview,
+				},
+			},
+			preview = {
+				hide_on_startup = true, -- hide previewer when picker starts
+			},
+			path_display = {
+				shorten = { len = 6, exclude = { 2, -1 } },
+			},
+		},
+	},
 }
