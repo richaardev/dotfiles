@@ -1,58 +1,51 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
-
--- require("lazyvim.config.options")
-local is_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
-
 local g = vim.g
 local opt = vim.opt
 
 g.mapleader = " "
 g.maplocalleader = ""
-g.transparency = false
 
--- opt.swapfile = false
--- opt.backup = false
-opt.undofile = true
-opt.undodir = { vim.fn.stdpath("data") .. ".vim/undodir" }
-
-opt.laststatus = 3
-opt.showmode = false
-
-opt.clipboard = "unnamedplus"
-
--- opt.cursorline = true
-
--- Indenting
-opt.expandtab = true
-opt.shiftwidth = 2
-opt.smartindent = true
+-- Tab / Indentation
 opt.tabstop = 2
+opt.shiftwidth = 2
 opt.softtabstop = 2
+opt.expandtab = true
+opt.smartindent = true
+opt.wrap = false
 
-opt.fillchars = { eob = " " }
+-- Search
+opt.incsearch = true
 opt.ignorecase = true
 opt.smartcase = true
-opt.mouse = "a"
+opt.hlsearch = false
 
--- -- Numbers
+-- Appearance
 opt.number = true
-opt.numberwidth = 2
-opt.ruler = false
 opt.relativenumber = true
-
--- -- disable nvim intro
-opt.shortmess:append("sI")
---
-opt.signcolumn = "yes"
-opt.splitbelow = true
-opt.splitright = true
 opt.termguicolors = true
-opt.timeoutlen = 400
+opt.colorcolumn = "120"
+opt.signcolumn = "yes"
+opt.cmdheight = 1
+opt.scrolloff = 10
+opt.completeopt = "menuone,noinsert,noselect"
 
--- -- interval for writing swap file to disk, also used by gitsigns
--- opt.updatetime = 250
--- go to previous/next line with h,l,left arrow and right arrow
--- when cursor reaches end/beginning of line
--- opt.whichwrap:append("<>[]hl")
+-- Behaviour
+opt.hidden = true
+opt.errorbells = false
+opt.swapfile = false
+opt.backup = false
+opt.undodir = vim.fn.expand("~/.vim/undodir")
+opt.undofile = true
+opt.backspace = "indent,eol,start"
+opt.splitright = true
+opt.splitbelow = true
+opt.mouse = "a"
+opt.clipboard:append("unnamedplus")
+opt.modifiable = true
+opt.guicursor = ""
+opt.encoding = "UTF-8"
+opt.showmode = false
+
+-- folds
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldlevel = 99

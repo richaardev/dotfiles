@@ -27,13 +27,14 @@ vim.opt.rtp:prepend(lazypath)
 local lazy = require("lazy")
 lazy.setup({
 	spec = {
-		{
-			"LazyVim/Lazyvim",
-			import = "lazyvim.plugins",
-		},
+		{ "LazyVim/Lazyvim", import = "lazyvim.plugins" },
 
 		{ import = "lazyvim.plugins.extras.vscode" },
-		{ import = "lazyvim.plugins.extras.lsp.none-ls" },
+
+		{ import = "lazyvim.plugins.extras.editor.telescope" },
+		{ import = "lazyvim.plugins.extras.coding.mini-comment" },
+		{ import = "lazyvim.plugins.extras.coding.mini-surround" },
+		{ import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 
 		{ import = "lazyvim.plugins.extras.lang.typescript" },
 		{ import = "lazyvim.plugins.extras.lang.tailwind" },
@@ -42,30 +43,14 @@ lazy.setup({
 		{ import = "lazyvim.plugins.extras.lang.docker" },
 		{ import = "lazyvim.plugins.extras.lang.rust" },
 		{ import = "lazyvim.plugins.extras.lang.rust" },
-		{ import = "lazyvim.plugins.extras.coding.mini-comment" },
-		{ import = "lazyvim.plugins.extras.coding.mini-surround" },
-		{ import = "lazyvim.plugins.extras.util.mini-hipatterns" },
+
+		-- { import = "lazyvim.plugins.extras.lsp.none-ls" },
+		{ import = "lazyvim.plugins.extras.linting.eslint" },
+
+		{ import = "lazyvim.plugins.extras.formatting.prettier" },
 
 		{ import = "plugins" },
 		{ import = "plugins.servers" },
-
-		{
-			"kawre/leetcode.nvim",
-			build = ":TSUpdate html",
-			dependencies = {
-				"nvim-telescope/telescope.nvim",
-				"nvim-lua/plenary.nvim", -- required by telescope
-				"MunifTanjim/nui.nvim",
-
-				-- optional
-				"nvim-treesitter/nvim-treesitter",
-				"rcarriga/nvim-notify",
-				"nvim-tree/nvim-web-devicons",
-			},
-			opts = {
-				-- configuration goes here
-			},
-		},
 	},
 
 	defaults = {

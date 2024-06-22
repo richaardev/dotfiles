@@ -4,13 +4,11 @@
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.enableCommitSigning": false,
-  
   // Window Settings
   "window.commandCenter": false,
   "window.openFilesInNewWindow": "on",
   "window.titleBarStyle": "custom",
   "window.zoomLevel": -0.15,
-
   // Workbench Settings
   "workbench.editor.labelFormat": "short",
   "workbench.editor.wrapTabs": false,
@@ -23,7 +21,6 @@
   "workbench.statusBar.visible": true,
   "workbench.productIconTheme": "developer-icons",
   "files.eol": "\n",
-
   // APC Settings
   "apc.font.family": "Geist Mono",
   "apc.monospace.font.family": "Geist Mono",
@@ -51,7 +48,6 @@
     ".part.activitybar .content .composite-bar": "width: 100%",
     ".monaco-action-bar > .actions-container[role=\"tablist\"]": "justify-content: space-evenly"
   },
-
   // Editor settings
   "editor.rulers": [
     80,
@@ -83,7 +79,6 @@
   "breadcrumbs.enabled": false,
   "editor.lineNumbers": "relative",
   "search.quickOpen.includeSymbols": true,
-  
   // Explorer Settings
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -94,7 +89,6 @@
     "package.json": "package-lock.json, yarn.lock"
   },
   "explorer.confirmPasteNative": false,
-
   // Change Font
   "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font Mono",
   "editor.fontFamily": "\"0xProto\"",
@@ -102,7 +96,6 @@
   "chat.editor.fontFamily": "\"0xProto\"",
   "markdown.preview.fontFamily": "\"0xProto\"",
   "ligature-test": " if () {}  === !== != => -> =>> ->>",
-
   // Font size
   "editor.fontSize": 14,
   "editor.lineHeight": 1.3,
@@ -111,7 +104,6 @@
   "terminal.integrated.fontWeight": "normal",
   "editor.fontWeight": "normal",
   "editor.fontLigatures": "'calt', 'ss01'",
-
   // Terminal Settings
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.defaultProfile.windows": "PowerShell",
@@ -139,12 +131,9 @@
   "terminal.integrated.allowChords": false,
   "security.workspace.trust.untrustedFiles": "open",
   "security.workspace.trust.banner": "never",
-
-
   // Extension settings
   "codesnap.shutterAction": "copy",
   "codesnap.target": "window",
-
   // Language Settings
   "go.toolsManagement.autoUpdate": true,
   "html.format.indentInnerHtml": true,
@@ -160,13 +149,11 @@
   "typescript.inlayHints.parameterNames.enabled": "all",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.tsserver.experimental.enableProjectDiagnostics": true,
-
   // Formating Settings
   "eslint.enable": true,
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
   "eslint.lintTask.options": ".",
-
   // Files default formatters
   "[go][go.sum][go.mod]": {
     "editor.defaultFormatter": "golang.go"
@@ -177,7 +164,6 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
-
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
@@ -187,16 +173,13 @@
   "[typescript][javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
-
   // Other settings (When changes on settings UI)
   "symbols.hidesExplorerArrows": false,
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-
   "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\richaardev\\AppData\\Local\\nvim\\init.lua",
   "vscode-neovim.neovimExecutablePaths.win32": "C:\\Program Files\\Neovim\\bin\\nvim.exe",
-
   "files.exclude": {
     "**/.svn": true,
     "**/.hg": true,
@@ -222,5 +205,5 @@
     "**/cspell.json": true,
     "**/README.md": true,
     "**/.env.example": true
-  },
+  }
 }

@@ -1,20 +1,33 @@
-export PATH=$PATH:$HOME/bin:$HOME/.local/bin:/snap/bin
+export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=/snap/bin:$PATH
 
-bindkey '^[[1;5D' backward-word
-bindkey '^[[1;5C' forward-word
-
-# History things
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zsh_history
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 source ~/.config/zsh/aliases.zsh
-source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
-eval "$(starship init zsh)"
-eval "$(direnv hook zsh)"
-eval "$(zoxide init zsh)"
+if [[ -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]] then
+  export ZSH="$HOME/.oh-my-zsh"
+
+  plugins=(starship zoxide git asdf direnv eza docker node npm golang gh)
+
+  source $ZSH/oh-my-zsh.sh
+fi
+
+zinit load zsh-users/zsh-autosuggestions
+zinit load zdharma-continuum/fast-syntax-highlighting
+
+if [[ -d "$HOME/.tmuxifier" ]] then
+  export PATH="$HOME/.tmuxifier/bin:$PATH"
+
+  if command -v tmuxifier &> /dev/null; then
+    eval "$(tmuxifier init -)"
+  fi
+fi
+

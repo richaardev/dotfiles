@@ -5,11 +5,11 @@ return {
 		format = {
 			timeout_ms = 7000,
 		},
-		-- 	formatters_by_ft = {
-		-- 		typescript = {},
-		-- 		typescriptreact = {},
-		-- 		javascript = {},
-		-- 		javascriptreact = {},
-		-- 	},
+		formatters_by_ft = {
+			typescript = { "eslint_d" },
+			typescriptreact = { "eslint_d" },
+			javascript = { "eslint_d" },
+			javascriptreact = { "eslint_d" },
+		},
 	},
 }

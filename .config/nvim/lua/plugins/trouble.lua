@@ -1,6 +1,5 @@
 return {
 	"folke/trouble.nvim",
-	branch = "dev",
 	keys = {
 		{
 			"<leader>xx",
@@ -33,5 +32,5 @@ return {
 			desc = "Quickfix List (Trouble)",
 		},
 	},
-	opts = {},
+	opts = { use_diagnostic_signs = true },
 }
