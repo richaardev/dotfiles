@@ -10,19 +10,19 @@ opt.shiftwidth = 2
 opt.softtabstop = 2
 opt.expandtab = true
 opt.smartindent = true
-opt.wrap = false
+opt.wrap = true
 
 -- Search
 opt.incsearch = true
 opt.ignorecase = true
 opt.smartcase = true
-opt.hlsearch = false
+opt.hlsearch = true
 
 -- Appearance
 opt.number = true
 opt.relativenumber = true
 opt.termguicolors = true
-opt.colorcolumn = "120"
+-- opt.colorcolumn = "120"
 opt.signcolumn = "yes"
 opt.cmdheight = 1
 opt.scrolloff = 10
@@ -41,7 +41,7 @@ opt.splitbelow = true
 opt.mouse = "a"
 opt.clipboard:append("unnamedplus")
 opt.modifiable = true
-opt.guicursor = ""
+-- opt.guicursor = ""
 opt.encoding = "UTF-8"
 opt.showmode = false
 

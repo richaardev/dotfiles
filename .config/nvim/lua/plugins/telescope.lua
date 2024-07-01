@@ -29,6 +29,20 @@ return {
 				ft = { "json", "xml", "yaml" },
 				mode = "n",
 			},
+			{
+				"<leader>fs",
+				function()
+					require("telescope.builtin").lsp_document_symbols()
+				end,
+				desc = "Goto Symbol",
+			},
+			{
+				"<leader>fS",
+				function()
+					require("telescope.builtin").lsp_dynamic_workspace_symbols()
+				end,
+				desc = "Goto Symbol (Workspace)",
+			},
 		}
 	end,
 	opts = {

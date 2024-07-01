@@ -44,6 +44,7 @@ lazy.setup({
 		{ import = "lazyvim.plugins.extras.lang.rust" },
 		{ import = "lazyvim.plugins.extras.lang.rust" },
 
+		{ import = "lazyvim.plugins.extras.editor.harpoon2" },
 		-- { import = "lazyvim.plugins.extras.lsp.none-ls" },
 		{ import = "lazyvim.plugins.extras.linting.eslint" },
 
